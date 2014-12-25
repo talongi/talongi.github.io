@@ -37,7 +37,7 @@ var projects = {
 		"dates": "October 2014",
 		"description": "A portfolio page derived from a mockup. Lanugages used: HTML/CSS",
 		"images": "http://talongi.github.io/images/bubble.png",
-		"link": "http://talongi.github.io/"
+		"link": "http://talongi.github.io/portfolio"
 	}
 	],
 	display: function() {
@@ -70,7 +70,7 @@ var bio = {
 		"twitter": "@tonybigtree",
 		"github": "talongi",
 		"location": "New York, NY"
-	}, 
+	},
 	"skills": [["UX Research", 1],["UX Design", 1], ["HTML", 0.5], ["CSS",0.4], ["Javascript",0.2]],
 	display: function() {
 	$("#header").prepend(internationalizeButton);
@@ -93,7 +93,7 @@ var bio = {
 		for (var skill in bio.skills) {
 			$("#skills").append(HTMLskills.replace("%data%", bio.skills[skill][0]));
 		};
-	
+
 	}
 	$("#mapDiv").append(googleMap);
 	$("#mapDiv").prepend("<hr class='hrbody'/>");
@@ -150,9 +150,9 @@ var education = {
 	for (var school in education.schools) {
 		$("#education").append(HTMLschoolStart);
 		$(".education-entry:last").append(HTMLschoolName.replace("%data%", education.schools[school].name) + HTMLschoolDegree.replace("%data%", education.schools[school].degree));
-		$(".education-entry:last").append(HTMLschoolDates.replace("%data%", education.schools[school].dates));	
+		$(".education-entry:last").append(HTMLschoolDates.replace("%data%", education.schools[school].dates));
 		$(".education-entry:last").append(HTMLschoolLocation.replace("%data%", education.schools[school].location));
-		$(".education-entry:last").append(HTMLschoolMajor.replace("%data%", education.schools[school].major));		
+		$(".education-entry:last").append(HTMLschoolMajor.replace("%data%", education.schools[school].major));
 	}
 	$("#education").append(HTMLonlineClasses);
 	for (var onlineClass in education.online) {
@@ -169,4 +169,3 @@ projects.display();
 education.display();
 bio.display();
 work.display();
- 
