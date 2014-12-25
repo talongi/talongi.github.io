@@ -38,7 +38,15 @@ var projects = {
 		"description": "A portfolio page derived from a mockup. Lanugages used: HTML/CSS",
 		"images": "http://talongi.github.io/images/bubble.png",
 		"link": "http://talongi.github.io/portfolio"
-	}
+	},
+	{
+	"title": "Frogger Clone",
+	"dates": "December 2014",
+	"description": "A clone of the classic arcade game, Frogger. Based on a Udacity project for the Object Oriented Javascript course. Languages used: HTML/CSS/Javascript",
+	"images": "http://www.decalninja.com/images/dn-frogger-frog.jpg",
+	"link": "http://talongi.github.io/frogger_clone"
+	},
+
 	],
 	display: function() {
 		$("#projects").prepend("<hr class='hrbody'/>");
