@@ -45,11 +45,12 @@ var HTMLprojectImage = "<img src='%data%' class='project-img'>";
 var HTMLprojectLink = "<a href='%data%''>%image%</a>"
 
 var HTMLschoolStart = "<div class='education-entry'></div>";
-var HTMLschoolName = "<a href='#'>%data%";
+var HTMLschoolLink = "<a href='%data%'>";
+var HTMLschoolName = "%data%";
 var HTMLschoolDegree = " -- %data%</a>";
 var HTMLschoolDates = "<div class='date-text'>%data%</div>";
 var HTMLschoolLocation = "<div class='location-text'>%data%</div>";
-var HTMLschoolMajor = "<em><br>Major: %data%</em>"
+var HTMLschoolMajor = "<em><br>Major: %data%</em>";
 
 var HTMLonlineClasses = "<h3>Online Classes</h3>";
 var HTMLonlineTitle = "<a href='#'>%data%";
@@ -62,19 +63,19 @@ var googleMap = "<div id='map'></div>";
 
 
 /*
-The International Name challenge in Lesson 2 where you'll create a function that will need this helper code to run. Don't delete! It hooks up your code to the button you'll be appending.
+The International Name
 */
 $(document).ready(function() {
   $('button').click(function() {
     var iName = bio.inName() || function(){};
-    $('#name').html(iName);  
+    $('#name').html(iName);
   });
 })
 
 
 
 /*
-The next few lines about clicks are for the Collecting Click Locations quiz in Lesson 2.
+The next few lines about clicks are for the Collecting Click Locations
 */
 clickLocations = [];
 
@@ -108,7 +109,7 @@ Start here! initializeMap() is called when page is loaded.
 */
 function initializeMap() {
 
-  var locations;        
+  var locations;
 
   var mapOptions = {
     disableDefaultUI: true
@@ -124,13 +125,13 @@ function initializeMap() {
   written for bio, education, and work.
   */
   function locationFinder() {
-    
+
     // initializes an empty array
     var locations = [];
 
     // adds the single location property from bio to the locations array
     locations.push(bio.contacts.location);
-    
+
     // iterates through school locations and appends each location to
     // the locations array
     for (var school in education.schools) {
@@ -155,7 +156,7 @@ function initializeMap() {
 
     // The next lines save location data from the search result object to local variables
     var lat = placeData.geometry.location.k;  // latitude from the place service
-    var lon = placeData.geometry.location.B;  // longitude from the place service
+    var lon = placeData.geometry.location.D;  // longitude from the place service
     var name = placeData.formatted_address;   // name of the place from the place service
     var bounds = window.mapBounds;            // current boundaries of the map window
 
@@ -165,7 +166,7 @@ function initializeMap() {
       position: placeData.geometry.location,
       title: name
     });
-    
+
     // infoWindows are the little helper windows that open when you click
     // or hover over a pin on a map. They usually contain more information
     // about a location.
@@ -206,7 +207,7 @@ function initializeMap() {
     // creates a Google place search service object. PlacesService does the work of
     // actually searching for location data.
     var service = new google.maps.places.PlacesService(map);
-    
+
     // Iterates through the array of locations, creates a search object for each location
     for (place in locations) {
 
@@ -215,7 +216,7 @@ function initializeMap() {
         query: locations[place]
       }
 
-      // Actually searches the Google Maps API for location data and runs the callback 
+      // Actually searches the Google Maps API for location data and runs the callback
       // function with the search results after each search.
       service.textSearch(request, callback);
     }
@@ -230,7 +231,7 @@ function initializeMap() {
   // pinPoster(locations) creates pins on the map for each location in
   // the locations array
   pinPoster(locations);
-  
+
 };
 
 /*
@@ -240,7 +241,7 @@ Uncomment all the code below when you're ready to implement a Google Map!
 // Calls the initializeMap() function when the page loads
 window.addEventListener('load', initializeMap);
 
-// Vanilla JS way to listen for resizing of the window 
+// Vanilla JS way to listen for resizing of the window
 // and adjust map bounds
 window.addEventListener('resize', function(e) {
   // Make sure the map bounds get updated on page resize

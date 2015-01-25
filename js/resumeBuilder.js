@@ -56,10 +56,10 @@ var projects = {
 		$(".project-entry:last").append(HTMLprojectDates.replace("%data%", projects.projects[item].dates));
 		$(".project-entry:last").append(HTMLprojectDescription.replace("%data%", projects.projects[item].description));
 		formattedLink = HTMLprojectLink.replace("%data%", projects.projects[item].link);
-		console.log(formattedLink);
+
 		formattedImage = HTMLprojectImage.replace("%data%", projects.projects[item].images);
 		formattedLink = formattedLink.replace("%image%", formattedImage);
-		console.log(formattedLink);
+
 		$(".project-entry:last").append(formattedLink);
 
 	}
@@ -71,7 +71,7 @@ var bio = {
 	"name": "Tony Alongi",
 	"image": "images/speeds.png",
 	"role": "UX/Front-end",
-	"welcomeMessage": "UX Professional. Aspiring Front-end developer.",
+	"welcomeMessage": "UX Professional. Aspiring Front-end Developer.",
 	"contacts": {
 		"mobile": "585.967.9118",
 		"email": "aalongi2@gmail.com",
@@ -79,12 +79,12 @@ var bio = {
 		"github": "talongi",
 		"location": "New York, NY"
 	},
-	"skills": [["UX Research", 1],["UX Design", 1], ["HTML", 0.5], ["CSS",0.4], ["Javascript",0.2]],
+	"skills": [["UX Research", 1],["UX Design", 1], ["Data Visualization (Tableau)", 0.5], ["HTML/CSS",0.4], ["Javascript",0.2]],
 	display: function() {
 	$("#header").prepend(internationalizeButton);
 	$("#header").prepend(HTMLheaderRole.replace("%data%", bio.role));
 	$("#header").prepend(HTMLheaderName.replace("%data%", bio.name));
-	$("#imgskill").append(HTMLbioPic.replace("%data%", bio.image));
+	//$("#imgskill").append(HTMLbioPic.replace("%data%", bio.image));
 	$("#imgskill").append(HTMLWelcomeMsg.replace("%data%", bio.welcomeMessage));
 	$("#topContacts").append(HTMLlocation.replace("%data%", bio.contacts.location));
 	$("#footerContacts").append(HTMLlocation.replace("%data%", bio.contacts.location));
@@ -96,6 +96,7 @@ var bio = {
 	$("#footerContacts").append(HTMLgithub.replace("%data%", bio.contacts.github));
 	$("#topContacts").append(HTMLtwitter.replace("%data%", bio.contacts.twitter));
 	$("#footerContacts").append(HTMLtwitter.replace("%data%", bio.contacts.twitter));
+
 	if (bio.skills.length > 0) {
 		$("#imgskill").append(HTMLskillsStart);
 		for (var skill in bio.skills) {
@@ -103,24 +104,25 @@ var bio = {
 		};
 
 	}
+
 	$("#mapDiv").append(googleMap);
 	$("#mapDiv").prepend("<hr class='hrbody'/>");
 	},
 	inName: function() {
-	var oldName = $("#name").text();
-	var splitName = oldName.split(" ");
-	if (splitName[1] != splitName[1].toUpperCase()) {
-		splitName[1] = splitName[1].toUpperCase();
-		$("#international-button").text("Americanize");
-	} else if (splitName[1] == splitName[1].toUpperCase()) {
-		splitName[1] = splitName[1].slice(0,1) + splitName[1].slice(1).toLowerCase();
-		$("#international-button").text("Internationalize");
-	}
-	var iName = splitName.join(" ");
+		var oldName = $("#name").text();
+		var splitName = oldName.split(" ");
+		if (splitName[1] != splitName[1].toUpperCase()) {
+			splitName[1] = splitName[1].toUpperCase();
+			$("#international-button").text("Americanize");
+		} else if (splitName[1] == splitName[1].toUpperCase()) {
+			splitName[1] = splitName[1].slice(0,1) + splitName[1].slice(1).toLowerCase();
+			$("#international-button").text("Internationalize");
+		}
+		var iName = splitName.join(" ");
 
-	return iName;
+		return iName;
 	}
-}
+};
 
 var education = {
 	"schools": [
@@ -129,14 +131,16 @@ var education = {
 		"location": "Rochester, NY, US",
 		"degree": "BA",
 		"major": "Brain and Cognitive Science",
-		"dates": "2009"
+		"dates": "2009",
+		"url": "http://www.bcs.rochester.edu/index.php"
 	},
 	{
 		"name": "Rochester Institute of Technology",
 		"location": "Rochester, NY, US",
 		"degree": "MS",
 		"major": "Applied, Experimental, and Engineering Psychology",
-		"dates": "2011"
+		"dates": "2011",
+		"url": "http://www.rit.edu/cla/psychology/graduate/ms-experimental-psych/overview"
 	}
 	],
 	"online": [
@@ -157,18 +161,18 @@ var education = {
 		$("#education").prepend("<hr class='hrbody'/>");
 	for (var school in education.schools) {
 		$("#education").append(HTMLschoolStart);
-		$(".education-entry:last").append(HTMLschoolName.replace("%data%", education.schools[school].name) + HTMLschoolDegree.replace("%data%", education.schools[school].degree));
+		$(".education-entry:last").append(HTMLschoolLink.replace("%data%", education.schools[school].url) + HTMLschoolName.replace("%data%", education.schools[school].name) + HTMLschoolDegree.replace("%data%", education.schools[school].degree));
 		$(".education-entry:last").append(HTMLschoolDates.replace("%data%", education.schools[school].dates));
 		$(".education-entry:last").append(HTMLschoolLocation.replace("%data%", education.schools[school].location));
 		$(".education-entry:last").append(HTMLschoolMajor.replace("%data%", education.schools[school].major));
 	}
-	$("#education").append(HTMLonlineClasses);
+/*	$("#education").append(HTMLonlineClasses);
 	for (var onlineClass in education.online) {
 		$("#education").append(HTMLschoolStart);
 		$(".education-entry:last").append(HTMLonlineTitle.replace("%data%", education.online[onlineClass].title) + HTMLonlineSchool.replace("%data%", education.online[onlineClass].school));
 		$(".education-entry:last").append(HTMLonlineDates.replace("%data%", education.online[onlineClass].dates));
 		$(".education-entry:last").append(HTMLonlineURL.replace("%data%", education.online[onlineClass].url));
-	}
+	}*/
 }
 
 }
