@@ -209,6 +209,10 @@ span {
   background-color: #272822;
 }
 
+#footerContacts {
+  text-align: center;
+}
+
 #role {
   float: right;
   margin-top: 15px;
