@@ -66,7 +66,7 @@ The International/American name toggle button
 */
 $(document).ready(function() {
   $('button').click(function() {
-    var iName = bio.inName() || function(){};
+    var iName = view.inName() || function(){};
     $('#name').html(iName);
   });
 })
@@ -128,18 +128,18 @@ function initializeMap() {
     var locations = [];
 
     // adds the single location property from bio to the locations array
-    locations.push(bio.contacts.location);
+    locations.push(model.bio[0].location);
 
     // iterates through school locations and appends each location to
     // the locations array
-    for (var school in education.schools) {
-      locations.push(education.schools[school].location);
+    for (var school in model.schools) {
+      locations.push(model.schools[school].location);
     }
 
     // iterates through work locations and appends each location to
     // the locations array
-    for (var job in work.jobs) {
-      locations.push(work.jobs[job].location);
+    for (var job in model.jobs) {
+      locations.push(model.jobs[job].location);
     }
 
     return locations;
